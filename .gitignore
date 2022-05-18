@@ -1,0 +1,12 @@
+.vs/
+.vsconfig
+Assembly-CSharp.csproj
+DS-Assignment.sln
+Library/
+Logs/
+Packages/
+ProjectSettings/
+Temp/
+UpgradeLog.htm
+UserSettings/
+obj/

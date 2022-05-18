@@ -18,6 +18,10 @@ public abstract class Sorter : MonoBehaviour
     protected Material normal, comparing, greaterThan, lessThan, sorted;
     [SerializeField]
     protected GameObject progressBar;
+    [SerializeField]
+    protected GameObject title;
+    [SerializeField]
+    protected Vector3 playerOffset;
 
     protected Item[] items = null;
     protected Command[] commands;
@@ -30,6 +34,8 @@ public abstract class Sorter : MonoBehaviour
     private int currentCommandIndex = 0;
     private bool sortingDone = false;
 
+    public GameObject player = null;
+
     protected struct SwapAnimationConfig {
         public float aspectRatio;
     }
@@ -41,10 +47,12 @@ public abstract class Sorter : MonoBehaviour
 
         public CommandType commandType;
         public int indexA, indexB;
+        public int playerFocus;
 
-        public Command(CommandType commandType, int indexA, int indexB) {
+        public Command(CommandType commandType, int indexA, int indexB, int playerFocus) {
             this.commandType = commandType;
             this.indexA = indexA; this.indexB = indexB;
+            this.playerFocus = playerFocus;
         }
     }
 
@@ -59,13 +67,15 @@ public abstract class Sorter : MonoBehaviour
         public Item A, B;
         public Vector3 originalA, originalB;
         public float progressPercent;
+        public int playerFocus;
     }
 
     private void Awake() {
         animConfig = new SwapAnimationConfig();
         animConfig.aspectRatio = ANIM_aspectRatio;
         createItems();
-        progressBar.transform.localPosition = new Vector3(0.0f, items[0].obj.transform.localPosition.y - items[0].obj.GetComponent<MeshFilter>().sharedMesh.bounds.size.y, 0.0f);
+        progressBar.transform.localPosition = new Vector3(progressBar.transform.localPosition.x, progressBar.transform.localPosition.y + items[0].obj.transform.localPosition.y - items[0].obj.GetComponent<MeshFilter>().sharedMesh.bounds.size.y, progressBar.transform.localPosition.z);
+        title.transform.localPosition = new Vector3(title.transform.localPosition.x, title.transform.localPosition.y + items[items.Length - 1].obj.transform.localPosition.y + items[items.Length - 1].obj.GetComponent<MeshFilter>().sharedMesh.bounds.size.y, title.transform.localPosition.z);
         fillInSwapCommands();
     }
 
@@ -76,6 +86,12 @@ public abstract class Sorter : MonoBehaviour
 
             // Update progress bar
             GetComponentInChildren<ProgressBar>().progress = (currentCommandIndex - 1 + operationStatus.progressPercent) / commands.Length;
+
+            // Update player
+            if (currentCommandIndex < commands.Length && operationStatus.playerFocus != commands[currentCommandIndex].playerFocus) {
+                float tmpY = (1 - operationStatus.progressPercent) * items[operationStatus.playerFocus].obj.transform.localPosition.y + operationStatus.progressPercent * items[commands[currentCommandIndex].playerFocus].obj.transform.localPosition.y;
+                player.transform.position = transform.localToWorldMatrix * (new Vector4(0.0f, tmpY, 0.0f, 1.0f) + new Vector4(playerOffset.x, playerOffset.y, playerOffset.z, 1.0f));
+            }
         }
     }
 
@@ -86,6 +102,7 @@ public abstract class Sorter : MonoBehaviour
                 foreach (Item item in items) {
                     item.obj.GetComponent<MeshRenderer>().material = sorted;
                 }
+                player = null;
                 Debug.Log("Sorting finished");
                 return;
             }
@@ -93,6 +110,7 @@ public abstract class Sorter : MonoBehaviour
             Command currentCommand = commands[currentCommandIndex];
             operationInProgress = true;
             operationStatus.commandType = currentCommand.commandType;
+            operationStatus.playerFocus = currentCommand.playerFocus;
 
             switch (currentCommand.commandType) {
             case Command.CommandType.SWAP:

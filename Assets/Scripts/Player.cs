@@ -26,8 +26,8 @@ public class Player : MonoBehaviour {
     }
 
     private void updateTransform() {
-        transform.Translate(transform.forward * velocity * Input.GetAxis("Vertical") * Time.deltaTime, Space.Self);
-        transform.Translate(transform.right * velocity * Input.GetAxis("Horizontal") * Time.deltaTime, Space.Self);
+        transform.Translate(transform.forward * velocity * Input.GetAxis("Vertical") * Time.deltaTime, Space.World);
+        transform.Translate(transform.right * velocity * Input.GetAxis("Horizontal") * Time.deltaTime, Space.World);
 
         transform.Rotate(new Vector3(0, 1, 0), mouseSensitivity * Input.GetAxis("Mouse X") * Time.deltaTime, Space.World);
         transform.Rotate(new Vector3(1, 0, 0), -mouseSensitivity * Input.GetAxis("Mouse Y") * Time.deltaTime, Space.Self);

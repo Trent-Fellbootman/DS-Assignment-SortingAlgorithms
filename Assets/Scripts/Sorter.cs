@@ -124,13 +124,17 @@ public abstract class Sorter : MonoBehaviour
 
                 Item A = items[currentCommand.indexA], B = items[currentCommand.indexB];
                 if (A.key > B.key) {
-                    Item tmp = A;
+                    Item tmp_item = A;
                     A = B;
-                    B = tmp;
+                    B = tmp_item;
                 }
 
                 A.obj.GetComponent<MeshRenderer>().material = lessThan;
                 B.obj.GetComponent<MeshRenderer>().material = greaterThan;
+
+                Item tmp = items[operationStatus.indexA];
+                items[operationStatus.indexA] = items[operationStatus.indexB];
+                items[operationStatus.indexB] = tmp;
 
                 break;
 
@@ -153,12 +157,6 @@ public abstract class Sorter : MonoBehaviour
             updateSwapItems(operationStatus);
 
             if (operationStatus.progressPercent >= 1) {
-                if (operationStatus.commandType == Command.CommandType.SWAP) {
-                    Item tmp = items[operationStatus.indexA];
-                    items[operationStatus.indexA] = items[operationStatus.indexB];
-                    items[operationStatus.indexB] = tmp;
-                }
-
                 items[operationStatus.indexA].obj.GetComponent<MeshRenderer>().material = normal;
                 items[operationStatus.indexB].obj.GetComponent<MeshRenderer>().material = normal;
 

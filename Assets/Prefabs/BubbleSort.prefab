@@ -157,7 +157,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 925558632597476256, guid: 8495038573cc3e14fa3d81540190d3b8, type: 2}
+  - {fileID: -54902227871808736, guid: 8495038573cc3e14fa3d81540190d3b8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -202,7 +202,7 @@ MonoBehaviour:
   m_text: "\u5F53\u524D\u8FDB\u5EA6\n\uFF08\u522B\u95EE\u6211\u600E\u4E48\u77E5\u9053\u7684\uFF09"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8495038573cc3e14fa3d81540190d3b8, type: 2}
-  m_sharedMaterial: {fileID: 925558632597476256, guid: 8495038573cc3e14fa3d81540190d3b8, type: 2}
+  m_sharedMaterial: {fileID: -54902227871808736, guid: 8495038573cc3e14fa3d81540190d3b8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -265,12 +265,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_renderer: {fileID: 297763314524232165}
-  m_maskType: 0
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
+  m_hasFontAssetChanged: 0
+  m_renderer: {fileID: 297763314524232165}
+  m_maskType: 0
 --- !u!1 &297763314801893410
 GameObject:
   m_ObjectHideFlags: 0
@@ -283,7 +283,7 @@ GameObject:
   - component: {fileID: 297763314801893423}
   m_Layer: 0
   m_Name: BubbleSort
-  m_TagString: Untagged
+  m_TagString: Sorter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -303,7 +303,7 @@ Transform:
   - {fileID: 297763315781732043}
   - {fileID: 297763315795735325}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &297763314801893423
 MonoBehaviour:
@@ -328,9 +328,11 @@ MonoBehaviour:
   greaterThan: {fileID: 2100000, guid: 4057fcbf5a04fba41aefef54866b9df4, type: 2}
   lessThan: {fileID: 2100000, guid: 469a71054717f3f4d96b1d06d33a8bc9, type: 2}
   sorted: {fileID: 2100000, guid: ee4445bc5e319af43a3640ad02c727c5, type: 2}
+  pivot: {fileID: 0}
   progressBar: {fileID: 297763315781732044}
   title: {fileID: 297763315795735326}
   playerOffset: {x: 0, y: 0, z: -5}
+  sortingDone: 0
   player: {fileID: 0}
 --- !u!1 &297763314877884709
 GameObject:
@@ -565,7 +567,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 925558632597476256, guid: 8495038573cc3e14fa3d81540190d3b8, type: 2}
+  - {fileID: -54902227871808736, guid: 8495038573cc3e14fa3d81540190d3b8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -610,7 +612,7 @@ MonoBehaviour:
   m_text: "\u5192\u6CE1\u6392\u5E8F"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8495038573cc3e14fa3d81540190d3b8, type: 2}
-  m_sharedMaterial: {fileID: 925558632597476256, guid: 8495038573cc3e14fa3d81540190d3b8, type: 2}
+  m_sharedMaterial: {fileID: -54902227871808736, guid: 8495038573cc3e14fa3d81540190d3b8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -673,9 +675,9 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_renderer: {fileID: 297763315795735323}
-  m_maskType: 0
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
+  m_hasFontAssetChanged: 0
+  m_renderer: {fileID: 297763315795735323}
+  m_maskType: 0

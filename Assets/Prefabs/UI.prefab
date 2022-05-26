@@ -548,7 +548,7 @@ RectTransform:
   m_GameObject: {fileID: 8537184922662809256}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8537184923656157143}
@@ -752,7 +752,7 @@ GameObject:
   - component: {fileID: 8537184922791975868}
   m_Layer: 5
   m_Name: UI
-  m_TagString: Untagged
+  m_TagString: Menu
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -771,7 +771,7 @@ RectTransform:
   m_Children:
   - {fileID: 8537184922662809257}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -857,6 +857,10 @@ MonoBehaviour:
   maxSize: {fileID: 8537184924183447153}
   sortingAlgorithm: {fileID: 8537184924452560752}
   createSortingSystem: {fileID: 8537184924624326005}
+  prototypes:
+  - {fileID: 297763314801893410, guid: 5a06655dea02a40fb81eb8295def4e00, type: 3}
+  - {fileID: 772328164658608271, guid: 13e0b59e5c0652123962358c79151e39, type: 3}
+  playerInstantiationOffset: 25
 --- !u!1 &8537184922880943339
 GameObject:
   m_ObjectHideFlags: 0

@@ -288,26 +288,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: EventSystem
       objectReference: {fileID: 0}
-    - target: {fileID: 5264775239197810341, guid: acb5b3cacab0a44168a04b74bab59753, type: 3}
-      propertyPath: speeds.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5264775239197810341, guid: acb5b3cacab0a44168a04b74bab59753, type: 3}
-      propertyPath: speeds.Array.data[0]
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5264775239197810341, guid: acb5b3cacab0a44168a04b74bab59753, type: 3}
-      propertyPath: speeds.Array.data[1]
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5264775239197810341, guid: acb5b3cacab0a44168a04b74bab59753, type: 3}
-      propertyPath: speeds.Array.data[2]
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5264775239197810341, guid: acb5b3cacab0a44168a04b74bab59753, type: 3}
-      propertyPath: speeds.Array.data[3]
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 5264775239197810342, guid: acb5b3cacab0a44168a04b74bab59753, type: 3}
       propertyPath: m_RootOrder
       value: 3

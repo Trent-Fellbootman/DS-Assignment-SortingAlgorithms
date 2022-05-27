@@ -71,5 +71,9 @@ public class EventSystem : MonoBehaviour {
         foreach (GameObject obj in GameObject.FindGameObjectsWithTag("Sorter")) {
             obj.GetComponent<Sorter>().swapSpeed = speeds[currentSpeedIndex];
         }
+
+        if (Input.GetButtonDown("Exit Game")) {
+            Application.Quit();
+        }
     }
 }
